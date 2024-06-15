@@ -1,30 +1,63 @@
 let DISPLAY = document.querySelector("#calc-current");
 let HISTORY = document.querySelector("#calc-history");
 
-const calculatorvalues = {
-    numOne: 0,
+const calculator = {
+    numbers: [],
     operator: "",
-}
+    sum: 0,
+    add() {this.sum = this.numbers[0] + this.numbers[1]},
+    subtract() {this.sum = this.numbers[0] - this.numbers[1]},
+    multiply() {this.sum = this.numbers[0] * this.numbers[1]},
+    divide() {this.sum = this.numbers[0] % this.numbers[1]},
+};
 
 const clearDisplay = function() {
     DISPLAY.textContent = "";
 };
 
 const resetValues = function() {
-    calculatorvalues.numOne = "NULL";
-    calculatorvalues.numTwo = "NULL";
-    calculatorvalues.operator = "";
+    calculator.numbers = [];
+    calculator.operator = "";
+    calculator.sum = "";
+    HISTORY.textContent = "";
 }
 
 const calculate = function(e) {
     e.stopPropagation;
-    calculatorvalues.operator = e.target.id;
-    calculatorvalues.numOne = Number(DISPLAY.textContent);
 
+    let currentText = DISPLAY.textContent;
+    let myArr = currentText.split(' ');
 
-    HISTORY.textContent = `${calculatorvalues.numOne} ${calculatorvalues.operator}`;
-    clearDisplay();
-    
+    if (myArr.length == 3) {
+        
+        if (!calculator.numbers[0]) {
+            calculator.numbers[0] = Number(myArr[0]);
+        }
+        calculator.operator = myArr[1];
+        calculator.numbers[1] = Number(myArr[2]);
+
+        switch (calculator.operator) {
+            case "+":
+                calculator.add();
+                break;
+            case "-":
+                calculator.subtract();
+                break;
+            case "*":
+                calculator.multiply();
+                break;
+            case "%":
+                calculator.divide();
+                break;
+            } 
+
+            HISTORY.textContent = `${calculator.numbers[0]} ${calculator.operator} ${calculator.numbers[1]} = ${calculator.sum}`;
+            calculator.numbers = [calculator.sum, ];
+            clearDisplay();
+        }
+    else {
+    DISPLAY.textContent = currentText + " " + e.target.id + " ";
+    }  
 }
 
 const numBtns = document.querySelectorAll(".number.button");
