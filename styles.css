@@ -45,6 +45,13 @@ body {
     height: 80px;
     width: 120px;
     border-radius: 15px;
+
+    font-family: monospace;
+    font-size: 15px;
+}
+
+.button:hover {
+    background-color: lightblue;
 }
 
 .number {
