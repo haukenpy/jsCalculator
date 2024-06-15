@@ -8,8 +8,20 @@ let clearDisplay = function(e) {
 
 let btn = document.querySelectorAll(".number.button");
 btn.forEach(btn => btn.addEventListener("click", () => {
-    DISPLAY.textContent = btn.id;
+    let currentText = DISPLAY.textContent;
+    currentText += btn.id
+    DISPLAY.textContent = currentText;
 }));
 
 let clearBtn = document.querySelector("#clear");
 clearBtn.addEventListener("click", clearDisplay);
+
+let backspaceBtn = document.querySelector("#backspace");
+backspaceBtn.addEventListener("click", () => {
+    currentText = DISPLAY.textContent;
+    arr = currentText
+        .split('')
+        .slice(0, -1)
+        .join('');
+    DISPLAY.textContent = arr;
+});
