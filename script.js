@@ -67,13 +67,13 @@ numBtns.forEach(btn => btn.addEventListener("click", () => {
     DISPLAY.textContent = currentText;
 }));
 
-let clearBtn = document.querySelector("#clear");
+const clearBtn = document.querySelector("#clear");
 clearBtn.addEventListener("click", () => {
     clearDisplay();
     resetValues();
 });
 
-let backspaceBtn = document.querySelector("#backspace");
+const backspaceBtn = document.querySelector("#backspace");
 backspaceBtn.addEventListener("click", () => {
     currentText = DISPLAY.textContent;
     arr = currentText
