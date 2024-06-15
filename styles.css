@@ -21,6 +21,10 @@ body {
     align-items: center;
 }
 
+#calc-history {
+    color: grey;
+}
+
 #calc-display {
     background-color: white;
     display: flex;

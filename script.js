@@ -1,8 +1,8 @@
-let DISPLAY = document.querySelector("#calc-display");
+let DISPLAY = document.querySelector("#calc-current");
+let HISTORY = document.querySelector("#calc-history");
 
 const calculatorvalues = {
-    numOne: "NULL",
-    numTwo: "NULL",
+    numOne: 0,
     operator: "",
 }
 
@@ -19,18 +19,11 @@ const resetValues = function() {
 const calculate = function(e) {
     e.stopPropagation;
     calculatorvalues.operator = e.target.id;
+    calculatorvalues.numOne = Number(DISPLAY.textContent);
 
-    if (calculatorvalues.numTwo == "NULL") {
-        if (calculatorvalues.numOne == "NULL") {
-            calculatorvalues.numOne = Number(DISPLAY.textContent);
-            clearDisplay();
-        } 
-        else {calculatorvalues.numTwo = Number(DISPLAY.textContent);
-            clearDisplay();
-        }
-    }
-    console.log(`${calculatorvalues.numOne} ${calculatorvalues.operator} ${calculatorvalues.numTwo}`);
-    
+
+    HISTORY.textContent = `${calculatorvalues.numOne} ${calculatorvalues.operator}`;
+    clearDisplay();
     
 }
 
