@@ -8,7 +8,7 @@ const calculator = {
     add() {this.sum = this.numbers[0] + this.numbers[1]},
     subtract() {this.sum = this.numbers[0] - this.numbers[1]},
     multiply() {this.sum = this.numbers[0] * this.numbers[1]},
-    divide() {this.sum = this.numbers[0] % this.numbers[1]},
+    divide() {this.sum = this.numbers[0] / this.numbers[1]},
 };
 
 const clearDisplay = function() {
@@ -85,3 +85,6 @@ backspaceBtn.addEventListener("click", () => {
 
 const functionBtns = document.querySelectorAll(".function.button");
 functionBtns.forEach(btn => btn.addEventListener("click", calculate));
+
+const submitBtn = document.querySelector(".equal");
+submitBtn.addEventListener("click", calculate);

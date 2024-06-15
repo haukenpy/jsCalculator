@@ -50,6 +50,13 @@ body {
     gap: 10px;
 }
 
+.equal {
+    width: 380px;
+    height: 80px;
+    background-color: coral;
+
+}
+
 .button {
     height: 80px;
     width: 120px;
@@ -70,3 +77,4 @@ body {
 .function {
     background-color: yellow;
 }
+
