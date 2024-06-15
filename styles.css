@@ -41,18 +41,16 @@ body {
     gap: 10px;
 }
 
-.number-button {
-    background-color: white;
-
+.button {
     height: 80px;
     width: 120px;
     border-radius: 15px;
 }
 
-.function-button {
-    background-color: yellow;
+.number {
+    background-color: white;
+}
 
-    height: 80px;
-    width: 120px;
-    border-radius: 15px;
+.function {
+    background-color: yellow;
 }
