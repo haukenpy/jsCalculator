@@ -3,6 +3,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: monospace;
 }
 
 #calc-body {
@@ -22,11 +23,14 @@ body {
 
 #calc-display {
     background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     width: 550px;
     height: 100px;
     border-radius: 15px;
-
+    font-size: 25px;
 }
 
 #btn-container {
@@ -46,8 +50,8 @@ body {
     width: 120px;
     border-radius: 15px;
 
-    font-family: monospace;
     font-size: 15px;
+    font-weight: bold;
 }
 
 .button:hover {
